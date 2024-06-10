@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:reset": "dropdb objectionjs-example && createdb objectionjs-example && npm run db:migrate:latest && npm run db:reseed",
+    "db:migrate:latest": "node ./db/migrate.js",
+    "db:reseed": "node ./db/seed.js",
+    "driver": "node ./driver"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/ektor-vrettakis/objectionjs-example/issues"
   },
-  "homepage": "https://github.com/ektor-vrettakis/objectionjs-example#readme"
+  "homepage": "https://github.com/ektor-vrettakis/objectionjs-example#readme",
+  "dependencies": {
+    "knex": "^3.1.0",
+    "objection": "^3.1.4",
+    "pg": "^8.12.0"
+  }
 }
